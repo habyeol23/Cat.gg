@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+import MainPage from "./pages/MainPage";
+import DetailPage from "./pages/DetailPage";
+
+
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: ${props => props.theme.maxWidth};
+  width: 100%;
+`;
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/detail" element={<DetailPage />} />
+      </Routes>
+    </Wrapper>
   );
 }
 
